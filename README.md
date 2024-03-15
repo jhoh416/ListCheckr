@@ -9,17 +9,17 @@
         - 기능 및 사용방법의 간소화로 사용자들의 접근성 향상
         - 비용 부담 없이 업무 협업을 위한 웹 서비스 제공
 
-## Link
+## Micro Service Link
 
-task : https://github.com/jhoh416/ListCheckr_task
+taskService : https://github.com/jhoh416/ListCheckr_task
 
-member : https://github.com/jonghechoi/ListCheckr_member
+memberService : https://github.com/jonghechoi/ListCheckr_member
 
-https://github.com/jonghechoi/ListCheckr_netflix-eureka
+gatewayService : https://github.com/jonghechoi/ListCheckr_netflix-eureka
 
-https://github.com/jonghechoi/ListCheckr_api-gateway
+discoveryService : https://github.com/jonghechoi/ListCheckr_api-gateway
 
-chat : https://github.com/jonghechoi/ListCheckr_chat
+chatService : https://github.com/jonghechoi/ListCheckr_chat
 
-login : https://github.com/jonghechoi/ListCheckr_auth
+loginService : https://github.com/jonghechoi/ListCheckr_auth
 
