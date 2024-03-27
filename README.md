@@ -34,13 +34,13 @@ Domian Driven Design 설계를 기반으로 총 5개의 도메인(회원 관리,
 - ## 인프라
   ### local
   #### 로컬에서는 각 애플리케이션 별 개발과 단위테스트를 할 수 있습니다. 통합테스트가 필요한 부분에서는 카프카를 이용해 데이터를 공유하며 진행했습니다.
-  ![Infra_Local](https://github.com/jonghechoi/dicom-bridge/assets/57426066/0aeedafb-201e-45b2-b908-c106960b5818)
+  ![Infra_Local](https://github.com/jonghechoi/ListCheckr/assets/57426066/cf91f4f5-db37-438b-a29e-7b96c2cbf00b)
   ### dev
   #### 모든 애플리케이션은 도커 파일로 빌드(CI 파이프라인 사용하자. Github Actions or Jenkins)되고 도커 컴포즈로 한번에 조작될 수 있도록 구성했습니다.
-  ![Infra_Dev](https://github.com/jonghechoi/dicom-bridge/assets/57426066/edff9ffa-f980-4971-b197-1db098e165f7)
+  ![Infra_Dev](https://github.com/jonghechoi/ListCheckr/assets/57426066/6a6400f0-dc4e-4d3f-a3d4-18631ea75c39)
 
 - ## 애플리케이션
-  ![Application_Architecture](https://github.com/jonghechoi/dicom-bridge/assets/57426066/1b6a0ac4-c4ea-4c37-92d9-f059985ea61f)
+  ![Application_Architecture](https://github.com/jonghechoi/ListCheckr/assets/57426066/79c1f498-1c4d-440d-8895-f3aec414bc24)
 
 # 🚀 고도화
 - CI/CD <br/>
