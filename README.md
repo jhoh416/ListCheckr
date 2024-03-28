@@ -4,11 +4,14 @@
 3. [아키텍처](#아키텍처)
 4. [🚀 고도화](#-고도화)
 5. [💡 느낀점](#-느낀점)  
+6. [Micro Service Link] (#-Micro-Service-Link)
    <br/><br/>
 
 # ListCheckr 프로젝트 개요
-사용자의 일정을 관리하고 그룹과 실시간 공유할 수 있는 Todo Task 서비스입니다. <br/>
-<img src="" width="800" height="400">
+    - 목표 : task tool에 익숙하지 않은 업종의 종사자들도 손쉽게 이용 가능한 업무 공유 웹 서비스 구축
+    - 핵심 가치 :
+        - 기능 및 사용방법의 간소화로 사용자들의 접근성 향상
+        - 비용 부담 없이 업무 협업을 위한 웹 서비스 제공
 
 <br/>
 
@@ -61,3 +64,19 @@ Domian Driven Design 설계를 기반으로 총 5개의 도메인(회원 관리,
   2. AWS 배포시 Beanstalk를 사용해볼 수도 있지 않은가? 컨테이너로 올린다면 EKS를 사용하는건 어떤가?
   3. HTTPS 적용
   4. 보안 측면에서 더 적용해야 할 점은 없는가?
+
+<br/>
+
+# Micro Service Link
+
+taskService : https://github.com/jhoh416/ListCheckr_task
+
+memberService : https://github.com/jonghechoi/ListCheckr_member
+
+gatewayService : https://github.com/jonghechoi/ListCheckr_netflix-eureka
+
+discoveryService : https://github.com/jonghechoi/ListCheckr_api-gateway
+
+chatService : https://github.com/jonghechoi/ListCheckr_chat
+
+loginService : https://github.com/jonghechoi/ListCheckr_auth
