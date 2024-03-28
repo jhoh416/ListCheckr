@@ -3,8 +3,8 @@
 2. [담당 페이지 및 기능](#담당-페이지-및-기능)
 3. [아키텍처](#아키텍처)
 4. [🚀 고도화](#-고도화)
-5. [💡 느낀점](#-느낀점)  
-6. [Micro Service Link] (#-Micro-Service-Link)
+5. [💡 느낀점 및 개선점](#-느낀점-및-개선점)
+6. [Micro Service Link](#-Micro-Service-Link)
    <br/><br/>
 
 # ListCheckr 프로젝트 개요
