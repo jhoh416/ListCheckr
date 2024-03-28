@@ -1,5 +1,6 @@
 .WorkList {
-    min-height: 320px;
-    max-height: 513px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     overflow-y: auto;
 }

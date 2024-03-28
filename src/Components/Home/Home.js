@@ -1,19 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Tabs from "../TabComponent/Tabs";
 import Header from "../Header/Header";
 import Contents from "../TabComponent/Contents/Contents";
 
 import '../../css/App.css';
-import Login from "../Login/Login";
 
-const Home = () => {
+const Home = ({ loggedInUserInfo }) => {
     return (
         <div className="Home">
-            {/*{isLoggedIn ? (*/}
                 <>
-                    <Tabs />
                     <Header />
-                    <Contents />
+                    <Tabs userInfo={loggedInUserInfo.userInfo} />
+                    <Contents userInfo={loggedInUserInfo.userInfo} />
                 </>
         </div>
     );

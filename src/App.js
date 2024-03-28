@@ -1,24 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import { AppProvider } from "./Context/AppContext";
+import { BoardProvider } from "./Context/BoardContext";
 import './css/App.css';
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import {Routes, Route, BrowserRouter, Navigate} from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
+import Contents from "./Components/TabComponent/Contents/Contents";
+import Join from "./Components/Join/Join";
 
 function App() {
-  return (
+    const [loggedInUserInfo, setLoggedInUserInfo] = useState(null);
+
+    const handleLogin = (id, userInfo) => {
+        setLoggedInUserInfo({ id: id, userInfo: userInfo });
+    }
+
+    return (
       <BrowserRouter>
           <AppProvider>
-              <div className="App">
-                  {/*<Login />*/}
-                  <Routes>
-                      <Route path="/" element={ <Login /> } />
-                      <Route path="/home" element={ <Home /> } />
-                  </Routes>
-              </div>
+              <BoardProvider>
+                  <div className="App">
+                      <Routes>
+                          <Route path="/" element={ <Login onLogin={handleLogin} /> } />
+                          <Route path="/join" element={ <Join /> } />
+                          <Route path="/home" element={ loggedInUserInfo ? <Home loggedInUserInfo={loggedInUserInfo} /> : <Navigate to="/" /> } />
+                          <Route path="/contents" element={ loggedInUserInfo ? <Contents loggedInUserInfo={loggedInUserInfo} /> : <Navigate to="/" /> } />
+                      </Routes>
+                  </div>
+              </BoardProvider>
           </AppProvider>
       </BrowserRouter>
-  );
+    );
 }
 
 export default App;
