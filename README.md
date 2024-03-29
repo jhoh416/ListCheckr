@@ -1,10 +1,11 @@
 # 목차
 1. [ListCheckr 프로젝트 개요](#Catchmind-프로젝트-개요)
-2. [담당 페이지 및 기능](#담당-페이지-및-기능)
-3. [아키텍처](#아키텍처)
-4. [🚀 고도화](#-고도화)
-5. [💡 느낀점 및 개선점](#-느낀점-및-개선점)
-6. [Micro Service Link](#-Micro-Service-Link)
+2. [기술 스택](#기술-스택)
+3. [기능](#기능)
+4. [아키텍처](#아키텍처)
+5. [고도화](#고도화)
+6. [💡 느낀점 및 개선점](#-느낀점-및-개선점)
+7. [Micro Service Link](#-Micro-Service-Link)
 
 <br/><br/>
 
@@ -16,24 +17,34 @@
 
 <br/>
 
-# 담당 페이지 및 기능
-총 3개의 페이지를 담당했습니다.
+# 기술 스택
+- ### Front-end
+  React.js
+- ### Back-end
+  Node.js / SpringBoot
+- ### Database
+  MongoDB / PostgreSQL / Redis
+- ### 그 외 스택
+  Docker, Kafka, Jenkins
 
-- ### Login
-  <img src="" width="400" height="200">
+<br/>
 
-- ### 회원 가입
-  <img src="" width="400" height="200">
-  <img src="" width="400" height="200">
+# 기능
+- ### 회원가입, 로그인, 채팅, 태스크툴
+
+- ### 태스크툴
+  ##### 각 보드마다 멤버를 초대하여 공동 작업이 가능합니다.
+  ![todo](https://github.com/jonghechoi/ListCheckr/assets/57426066/b5c01205-921f-48d7-b796-5e7b4dd71b47)
 
 - ### 채팅
-  <img src="" width="400" height="200">
+  ##### 해당 보드의 멤버들 간에 실시간 채팅 기능을 사용할 수 있습니다.
+  ![chat](https://github.com/jonghechoi/ListCheckr/assets/57426066/28db8149-7674-439d-b9ce-20b14cc54d33)
 
 <br/>
 
 # 아키텍처
 Domian Driven Design 설계를 기반으로 총 5개의 도메인(회원 관리, 로그인, task, 결제, 채팅)을 도출했습니다. → [링크](https://jonghe.notion.site/a6c069b0f88e47daa54b16ec47a68c14?pvs=4) <br/>
-각 도메인은 마이크로서비스 애플리케이션으로 구성됩니다. 
+각 도메인은 마이크로서비스 애플리케이션으로 구성됩니다.
 
 - ## 인프라
   ### local
@@ -48,25 +59,26 @@ Domian Driven Design 설계를 기반으로 총 5개의 도메인(회원 관리,
 
 <br/>
 
-# 🚀 고도화
+# 고도화
 - CI/CD <br/>
-  Jenkins로 파이프라인을 구성했습니다. → [링크](https://github.com/jonghechoi/ListCheckr_member/blob/master/Jenkinsfile) <br/> 
+  Jenkins로 파이프라인을 구성했습니다. → [링크](https://github.com/jonghechoi/ListCheckr_member/blob/master/Jenkinsfile) <br/>
   각 애플리케이션의 레포지토리 master브랜치에 커밋이 발생하면 자동으로 dev 환경에 있는 애플리케이션이 업데이트됩니다.
-- AOP <br/> 
+- AOP <br/>
   Logging, Exception 처리
-- TDD <br/>
+- TDD
 
 <br/>
 
 # 💡 느낀점 및 개선점
 - ### 느낀점
-  1. 리팩토링을 어떻게 해야 할지에 대한 고민이 많았습니다. 특히, 객체 지향적으로 설계하고자 노력했습니다.
-  2. 
+  애자일 방법론, 익숙하지 않은 언어와 기술들을 사용하여 만든 프로젝트입니다.
+  열정과 노력이 많이 들어간 프로젝트이다 보니 리팩토링을 통해 지속적인 개선점 보완하고자 합니다.
 - ### 개선점
-  1. DB의 read/write 측면을 고려하여 읽기전용 복제본을 만들 필요는 없는가?
-  2. AWS 배포시 Beanstalk를 사용해볼 수도 있지 않은가? 컨테이너로 올린다면 EKS를 사용하는건 어떤가?
+  1. DB의 read/write 측면을 고려하여 읽기전용 복제본을 만들 필요는 없는지 고민이 필요합니다.
+  2. AWS 배포시 Beanstalk 혹은 컨테이너로 올린다면 EKS 사용을 고려해 볼 수 있습니다.
   3. HTTPS 적용
-  4. 보안 측면에서 더 적용해야 할 점은 없는가?
+  4. 사용자 입장에서 UX 개선이 필요합니다.
+  5. 반응형웹으로 업데이트가 필요합니다.
 
 <br/>
 
@@ -82,4 +94,4 @@ discoveryService : https://github.com/jonghechoi/ListCheckr_api-gateway
 
 chatService : https://github.com/jonghechoi/ListCheckr_chat
 
-loginService : https://github.com/jonghechoi/ListCheckr_auth
+authService : https://github.com/jonghechoi/ListCheckr_auth
