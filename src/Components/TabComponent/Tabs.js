@@ -22,12 +22,12 @@ const Tabs = ({ userInfo }) => {
 
     const config = userInfo ? {
         headers: {
-            Authorization: `Bearer ${userInfo}`
+            Authorization: `Bearer ${userInfo.userInfo}`
         }
     } : {};
     
     useEffect(() => {
-       console.log("token:", userInfo);
+       console.log("token:", userInfo.userInfo);
     },[userInfo]);
     useEffect(() => {
         const handleClickOutside = (e) => {
@@ -60,7 +60,7 @@ const Tabs = ({ userInfo }) => {
                             <Board
                                 boardId={_id}
                                 title={todoList && todoList.length > 0 ? todoList[0].title : null}
-                                token={userInfo}
+                                token={userInfo.userInfo}
                             />
                         ),
                     },
@@ -195,6 +195,7 @@ const Tabs = ({ userInfo }) => {
                             {isChatModalOpen[_id] && (
                                 <ChatModal
                                     boardId={ _id }
+                                    userInfo={ userInfo }
                                     onClose={() =>
                                         setChatModalOpen((prev) => ({
                                             ...prev,
