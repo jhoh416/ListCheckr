@@ -4,26 +4,29 @@ import SockJS from "sockjs-client";
 import '../../css/ChatModal.css';
 import axios from "axios";
 
-const ChatModal = ({ boardId, onClose }) => {
+const ChatModal = ({ boardId, userInfo, onClose }) => {
+    const apiInstance = axios.create({ baseURL: "http://localhost:8084/api/chat/" });
     const [socketConnected, setSocketConnected] = useState(false);
-    const [message, setMessage] = useState('');
-    const [sendMsg, setSendMsg] = useState(false);
-    const [items, setItems] = useState([]);
     const [stompClient, setStompClient] = useState(null);
     const webSocketUrl = "http://localhost:8084/chat/pub";
-    const apiInstance = axios.create({ baseURL: "http://localhost:8084/api/chat/" });
-    const [boardName, setBoardName] = useState('');
+
+    const [timeFormatted, setTimeFormatted] = useState('');
+    const [sendMsg, setSendMsg] = useState(false);
+    const [message, setMessage] = useState('');
+    const [items, setItems] = useState([]);
+
     const scrollRef = useRef();
 
+    const [accessToken, setAccessToken] = useState("");
+    const [userId, setUserId] = useState("");
+
     useEffect(() => {
-        if (boardId) {
-            setBoardName(boardId);
-        }
+        setUserId(userInfo.id);
 
         const socket = new SockJS(webSocketUrl);
         const stomp = Stomp.over(socket);
 
-        stomp.connect({ boardId : boardId, sender : "초기 생성인", createTime :  Date.now() }, () => {
+        stomp.connect({ boardId : boardId, sender : userId, createTime :  Date.now() }, () => {
             console.log('Stomp 연결 성공');
             setSocketConnected(true);
 
@@ -66,7 +69,7 @@ const ChatModal = ({ boardId, onClose }) => {
                         boardId: boardId,
                         messageContent: {
                             // 추후 로그인 ID로 변경 필수
-                            sender: "b",
+                            sender: userId,
                             content: message,
                             sendTime: Date.now()
                         },
@@ -78,6 +81,16 @@ const ChatModal = ({ boardId, onClose }) => {
             }
         }
     };
+
+    const timeFormat = (time) => {
+        const date = new Date(parseInt(time));
+        const hour = date.getHours();
+        const displayHour = hour % 12 || 12;
+        const minute = date.getMinutes();
+        const ampm = hour >= 12 ? '오후' : '오전';
+
+        return `${ampm} ${displayHour}:${minute < 10 ? '0' : ''}${minute}`;
+    }
 
     useEffect(() => {
         if (sendMsg) {
@@ -100,19 +113,18 @@ const ChatModal = ({ boardId, onClose }) => {
 
     return (
         <div className="modal-overlay">
-            {/*<div className="modal-container" onClick={(e) => e.stopPropagation()}>*/}
-            <div className="modal-container">
+            <div className="modal-container" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-content" ref={scrollRef}>
                     {items.map((item, index) => (
-                        <div className="wrap">
-                            <div className="chat me">
-                                <div className="icon"><i className="fa-solid fa-user"></i></div>
-                                <div className="textbox">{item.content}</div>
+                        <div className="wrap" key={ index }>
+                            <div className={ item.sender === userId ? "chat me" : "chat other" }>
+                                {item.sender !== userId && <div className="icon"><i className="fa-solid fa-user"></i></div>}
+                                <div className="userTextbox">
+                                    {item.sender !== userId && <div className="user">{ item.sender }</div>}
+                                    <div className="textbox">{ item.content }</div>
+                                </div>
+                                <div className="time-stamp"><p>{ timeFormat(item.sendTime) }</p></div>
                             </div>
-                            {/*<div className="chat other">*/}
-                            {/*    <div className="icon"><i className="fa-solid fa-user"></i></div>*/}
-                            {/*    <div className="textbox">아유~ 너무요너무요! 요즘 어떻게 지내세요?</div>*/}
-                            {/*</div>*/}
                         </div>
                     ))}
                 </div>

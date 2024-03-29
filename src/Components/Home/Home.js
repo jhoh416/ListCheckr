@@ -10,7 +10,8 @@ const Home = ({ loggedInUserInfo }) => {
         <div className="Home">
                 <>
                     <Header />
-                    <Tabs userInfo={loggedInUserInfo.userInfo} />
+                    <Tabs userInfo={loggedInUserInfo} />
+                    {/*<Tabs userInfo={loggedInUserInfo.userInfo} />*/}
                     <Contents userInfo={loggedInUserInfo.userInfo} />
                 </>
         </div>

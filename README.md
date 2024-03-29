@@ -5,7 +5,8 @@
 4. [🚀 고도화](#-고도화)
 5. [💡 느낀점 및 개선점](#-느낀점-및-개선점)
 6. [Micro Service Link](#-Micro-Service-Link)
-   <br/><br/>
+
+<br/><br/>
 
 # ListCheckr 프로젝트 개요
     - 목표 : task tool에 익숙하지 않은 업종의 종사자들도 손쉽게 이용 가능한 업무 공유 웹 서비스 구축
@@ -44,6 +45,8 @@ Domian Driven Design 설계를 기반으로 총 5개의 도메인(회원 관리,
 
 - ## 애플리케이션
   ![Application_Architecture](https://github.com/jonghechoi/ListCheckr/assets/57426066/79c1f498-1c4d-440d-8895-f3aec414bc24)
+
+<br/>
 
 # 🚀 고도화
 - CI/CD <br/>
