@@ -16,16 +16,16 @@
 <br/>
 
 # 기능
-총 3개의 페이지를 담당했습니다.
+- ### 회원가입, Login, 채팅, tasktool, 결제 
 
-- ### Login
+- ### tasktool
+  ##### 각 보드마다 멤버를 초대하여 공동 작업이 가능합니다.
   <img src="" width="400" height="200">
-
-- ### 회원 가입
-  <img src="" width="400" height="200">
-  <img src="" width="400" height="200">
+  
+ 
 
 - ### 채팅
+  ##### 해당 보드의 멤버들 간에 실시간 채팅 기능을 사용할 수 있습니다.
   <img src="" width="400" height="200">
 
 <br/>
